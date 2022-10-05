@@ -7,7 +7,7 @@
 #include "chunk.hh"
 
 const size_t KB = 1024;
-const size_t MB = KB * MB;
+const size_t MB = KB * KB;
 
 class MemoryPool {
 public:
