@@ -4,6 +4,8 @@
 #include <cstdlib>
 #include <iostream>
 
+#include "chunk.hh"
+
 const size_t KB = 1024;
 const size_t MB = KB * MB;
 const size_t kDefaultMaxSize = 4*KB;
@@ -29,7 +31,10 @@ private:
     size_t  _betweenPoint;
 
 
-
+    /*
+     * describe allocted space with chunks
+     */
+    Chunk*  _startChunk;
 };
 
 #endif
