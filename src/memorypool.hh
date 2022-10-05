@@ -18,7 +18,7 @@ public:
     void* eMalloc(size_t size);
 
     // free target address
-    void* free(void* toBeFree);
+    void eFree(void* toBeFree);
 
 
 private:
@@ -36,7 +36,7 @@ private:
     Chunk*  _startChunk;
 
     inline bool ableToCreate(size_t target) {
-        return _betweenPoint+target >= _startAddress+_mxsize;
+        return _betweenPoint+target <= _startAddress+_mxsize;
     }
 };
 

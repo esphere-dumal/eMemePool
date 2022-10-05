@@ -18,11 +18,10 @@ public:
 
     // 分配一个 obj 出去
     size_t allocObj() {
-        for (auto i=0; i<_objSize; i++) {
+        for (size_t i=0; i<_objUsed.size(); i++) {
             if (_objUsed[i] == false) {
                 _objUsed[i] = true;
                 ++_objSize;
-                std::cout << offsetToAddr(i);
                 return offsetToAddr(i);
             }
         }

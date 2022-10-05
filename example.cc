@@ -3,7 +3,7 @@
 #include "src/memorypool.hh" 
 
 int main() {
-    auto mp = new MemoryPool(MB);
+    auto mp = new MemoryPool(16);
 
     int* ptr1 = (int*)(mp->eMalloc(sizeof(int)));
     int* ptr2 = (int*)(mp->eMalloc(sizeof(int)));

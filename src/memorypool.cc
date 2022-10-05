@@ -2,7 +2,6 @@
 
 MemoryPool::MemoryPool(size_t maxsize): _mxsize(maxsize), _startChunk(nullptr) {
     void* ptr = malloc(_mxsize);
-    std::cout << ptr << std::endl;
     if (ptr == nullptr) {
         std::cerr << "[eMemoryPool]: can't get enough memory to init memorypool" << std::endl;
     }
@@ -13,8 +12,9 @@ MemoryPool::MemoryPool(size_t maxsize): _mxsize(maxsize), _startChunk(nullptr) {
 
 void* MemoryPool::eMalloc(size_t size) {
     Chunk *ck=_startChunk, *last;
+
+    // if able to find a proper chunk
     while(ck!=nullptr) {
-        // if able to find a proper chunk
         if (ck->_base == size && ck->isFull()==false) {
             return (void*)(ck->allocObj());
         }
@@ -27,10 +27,9 @@ void* MemoryPool::eMalloc(size_t size) {
     size_t needMemory = size*kDefaultMxObjs;
     if (ableToCreate(needMemory)) {
         last->_next = new Chunk(_betweenPoint, size);
-        _betweenPoint = _betweenPoint + needMemory+1;
+        _betweenPoint = _betweenPoint + needMemory + 1;
         return (void*)(last->_next->allocObj());
     }
-
 
     return nullptr;
 }
