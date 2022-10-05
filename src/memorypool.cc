@@ -33,3 +33,15 @@ void* MemoryPool::eMalloc(size_t size) {
 
     return nullptr;
 }
+
+void MemoryPool::eFree(void* toBeFree) {
+    auto ck = _startChunk;
+
+    while (ck!=nullptr) {
+        if (ck->inBoundary(toBeFree)) {
+            ck->freeObj(size_t(toBeFree));
+            return;
+        }
+        ck = ck->_next;
+    }
+}
