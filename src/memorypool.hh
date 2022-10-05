@@ -8,12 +8,11 @@
 
 const size_t KB = 1024;
 const size_t MB = KB * MB;
-const size_t kDefaultMaxSize = 4*KB;
 
 class MemoryPool {
 public:
     // Init memory pool with a maxsize
-    MemoryPool(size_t maxsize = kDefaultMaxSize);
+    MemoryPool(size_t maxsize);
 
     // return an address, nullptr when failed to allocate
     void* eMalloc(size_t size);

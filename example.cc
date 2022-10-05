@@ -3,6 +3,6 @@
 #include "src/memorypool.hh" 
 
 int main() {
-    auto mp = new MemoryPool();
+    auto mp = new MemoryPool(MB);
     return 0;
 }
