@@ -2,6 +2,7 @@
 #define MEMORYPOOL_HH
 
 #include <cstdlib>
+#include <iostream>
 
 const size_t KB = 1024;
 const size_t MB = KB * MB;
@@ -27,7 +28,7 @@ private:
     size_t  _startAddress;
     size_t  _betweenPoint;
 
-    
+
 
 };
 
