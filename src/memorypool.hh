@@ -20,6 +20,7 @@ public:
     // free target address
     void* free(void* toBeFree);
 
+
 private:
     /*
      *  free memory is described by 
@@ -29,11 +30,14 @@ private:
     size_t  _startAddress;
     size_t  _betweenPoint;
 
-
     /*
      * describe allocted space with chunks
      */
     Chunk*  _startChunk;
+
+    inline bool ableToCreate(size_t target) {
+        return _betweenPoint+target >= _startAddress+_mxsize;
+    }
 };
 
-#endif
+#endif 

@@ -22,6 +22,7 @@ public:
             if (_objUsed[i] == false) {
                 _objUsed[i] = true;
                 ++_objSize;
+                std::cout << offsetToAddr(i);
                 return offsetToAddr(i);
             }
         }
@@ -34,7 +35,6 @@ public:
         --_objSize;
     }
 
-private:
     size_t  _start;
     size_t  _base;
     size_t  _objSize;
